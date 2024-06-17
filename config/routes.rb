@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "/customer_support", to:"customer_support#customer_support"
   get '/', to:'home#home'
   get '/demo'=>'demo#demo'
+
+  get '*path', to: 'application#render_404', via: :all
+  match "/500", to: "application#render_500", via : all
   # Defines the root path route ("/")
   # root "posts#index"
 end
